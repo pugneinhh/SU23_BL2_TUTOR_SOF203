@@ -4,6 +4,8 @@
  */
 package bai1;
 
+import java.util.Objects;
+
 /**
  *
  * @author Phanh
@@ -78,7 +80,43 @@ public class CuaHang {
 
     @Override
     public String toString() {
-        return "CuaHang{" + "id=" + id + ", ma=" + ma + ", ten=" + ten + ", diaChi=" + diaChi + ", thanhPho=" + thanhPho + ", quocGia=" + quocGia + '}';
+        return ten;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CuaHang other = (CuaHang) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.ma, other.ma)) {
+            return false;
+        }
+        if (!Objects.equals(this.ten, other.ten)) {
+            return false;
+        }
+        if (!Objects.equals(this.diaChi, other.diaChi)) {
+            return false;
+        }
+        if (!Objects.equals(this.thanhPho, other.thanhPho)) {
+            return false;
+        }
+        return Objects.equals(this.quocGia, other.quocGia);
     }
     
 }

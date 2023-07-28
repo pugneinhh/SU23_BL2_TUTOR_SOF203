@@ -16,9 +16,10 @@ import java.util.logging.Logger;
 public class CuaHangDAO {
 
     Connection con = DBConnect.getConnection();//kết nối
-    ArrayList<CuaHang> list = new ArrayList<>();
+   
 
     public ArrayList<CuaHang> getAll() {
+         ArrayList<CuaHang> list = new ArrayList<>();
         String query = "SELECT * FROM CuaHang";//viết câu truy vấn
         try {
             PreparedStatement ps = con.prepareStatement(query);//tạo đối tượng preparedstatement
@@ -42,6 +43,7 @@ public class CuaHangDAO {
     }
 
     public ArrayList<CuaHang> getByMa() {
+         ArrayList<CuaHang> list = new ArrayList<>();
         String query = "SELECT * FROM CuaHang where ma like ?";//viết câu truy vấn
         try {
             PreparedStatement ps = con.prepareStatement(query);//tạo đối tượng preparedstatement
