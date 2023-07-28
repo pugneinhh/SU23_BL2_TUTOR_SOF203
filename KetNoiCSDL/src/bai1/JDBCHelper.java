@@ -9,6 +9,22 @@ import java.sql.*;
  * @author Phanh
  */
 public class JDBCHelper {
+     public static ResultSet executeQuery(String sql,Object ...args){
+        Connection con=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        try {
+            con=DBConnect.getConnection();
+            ps=con.prepareStatement(sql);
+            for (int i = 0; i < args.length; i++) {
+                ps.setObject(i+1, args[i]);
+                
+            }
+            rs=ps.executeQuery();
+        } catch (Exception e) {
+        }
+        return rs;
+    }
     public static Integer excuteUpdate(String sql,Object ...args){
         Connection con=null;
         Integer row=0;
